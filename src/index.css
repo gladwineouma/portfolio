@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+
+/* ===== YOUR DESIGN SYSTEM (PASTE FULL BLOCK HERE) ===== */
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-glow: var(--glow);
+}
+
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --radius: 1.25rem;
+
+  --background: oklch(0.16 0.05 270);
+  --foreground: oklch(0.98 0.01 270);
+  --primary: oklch(0.7 0.2 290);
+  --accent: oklch(0.68 0.2 250);
+  --border: oklch(0.45 0.12 275 / 0.4);
+  --glow: oklch(0.7 0.22 285);
+}
+
+/* ===== BASE STYLES ===== */
+@layer base {
+
+  html,
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-shadow: 0 0 28px oklch(0.72 0.22 295 / 0.35);
+  }
+}
+
+/* ===== YOUR CUSTOM EFFECTS ===== */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 18px oklch(0.72 0.22 295 / 0.55);
+  }
+
+  .text-glow-hover:hover {
+    text-shadow: 0 0 18px oklch(0.72 0.22 295 / 0.7);
+  }
+
+  .hover-text-glow:hover {
+    text-shadow: 0 0 18px rgba(168, 85, 247, 0.8);
+  }
+
+  .text-gradient {
+    background: linear-gradient(90deg, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+  }
+}
