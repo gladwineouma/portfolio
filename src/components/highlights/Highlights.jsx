@@ -36,7 +36,7 @@ export default function Highlights() {
     ]
 
     return (
-        <section id="highlights" className="min-h-screen flex flex-col items-center justify-center py-20 px-6 md:px-16 bg-gradient-to-r from-[#020005] via-[#0d011a] to-[#2b0054]">
+        <section id="highlights" className="min-h-screen flex flex-col items-center justify-center py-20 px-6 md:px-16 bg-[#1e103c]">
             <div className="max-w-6xl w-full text-left">
 
                 {/* Main Heading Pill Element */}

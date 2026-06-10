@@ -16,7 +16,7 @@ export default function ProjectCard({ project }) {
             <div className={`relative w-full h-full transition-transform duration-700 [transform-style:preserve-3d] ${isFlipped ? '[transform:rotateY(180deg)]' : ''}`}>
 
                 {/* FRONT SIDE (All cards look uniform now) */}
-                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-[#1a0e36]/30 backdrop-blur-xl border border-purple-500/15 rounded-[32px] p-8 flex flex-col justify-between shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_40px_rgba(0,0,0,0.3)]">
+                <div className="absolute inset-0 w-full h-full [backface-visibility:hidden] bg-[#1e103c] backdrop-blur-xl border border-purple-500/15 rounded-[32px] p-8 flex flex-col justify-between shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_10px_40px_rgba(0,0,0,0.3)]">
 
                     {/* Top Row Icon Area */}
                     <div className="flex items-center justify-between">

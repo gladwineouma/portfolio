@@ -7,7 +7,7 @@ export default function Footer({ isContactOpen, setIsContactOpen }) {
             <div className="max-w-6xl w-full flex flex-col items-center gap-12">
 
                 {/* Glassmorphic Call to Action Banner Container */}
-                <div className="w-full bg-[#1e103c]/20 backdrop-blur-xl border border-purple-500/15 rounded-[32px] py-16 px-8 flex flex-col items-center justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.4)] relative overflow-hidden">
+                <div className="w-full bg-[#1e103c] backdrop-blur-xl border border-purple-500/15 rounded-[32px] py-16 px-8 flex flex-col items-center justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.4)] relative overflow-hidden">
 
                     <h2 className="text-white text-3xl md:text-4xl font-bold italic tracking-wide mb-3">
                         Have a project <span className="bg-gradient-to-r from-[#a855f7] to-[#7c3aed] bg-clip-text text-transparent not-italic">in mind?</span>
