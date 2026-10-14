@@ -1,7 +1,6 @@
 import PillHeading from '../ui/PillHeading'
 
 export default function Skills() {
-    // Array updated with 'fullName' properties for the tooltips
     const techBadges = [
         { label: 'Dj', fullName: 'Django', bg: 'bg-[#15803d]/20 text-[#22c55e] border-[#22c55e]/30' },
         { label: 'Re', fullName: 'React', bg: 'bg-[#1d4ed8]/20 text-[#3b82f6] border-[#3b82f6]/30' },
@@ -25,38 +24,30 @@ export default function Skills() {
         <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-16 px-6 md:px-16 bg-gradient-to-r from-[#020005] via-[#0d011a] to-[#2b0054]">
             <div className="max-w-6xl w-full">
 
-                {/* Pill Heading Container */}
                 <div className="mb-10">
                     <div className="inline-block px-9 py-3 bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#4c1d95] rounded-full font-bold text-2xl italic text-black shadow-lg">
                         Skills & Expertise
                     </div>
                 </div>
 
-                {/* Big Glassmorphism Panel Wrapper */}
                 <div className="w-full bg-[#160b2b]/30 backdrop-blur-xl border border-purple-500/20 rounded-[32px] p-8 md:p-12 shadow-[0_0_50px_rgba(147,51,234,0.08)]">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
 
-                        {/* LEFT COLUMN: SKILLS, BACKEND, INTERESTS */}
                         <div className="flex flex-col gap-10">
 
-                            {/* Section: Technical Skills Circle Badges */}
                             <div>
                                 <h3 className="text-white text-xl font-bold italic tracking-wide mb-5">Technical skills</h3>
                                 <div className="flex flex-wrap gap-4">
                                     {techBadges.map((badge, idx) => (
                                         <div key={idx} className="group relative">
                                             
-                                            {/* Tailwind Custom Tooltip Container */}
                                             <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 transition-all duration-200 z-10">
-                                                {/* Tooltip Bubble */}
                                                 <div className="bg-[#120720] text-gray-200 text-xs font-semibold px-3 py-1.5 rounded-lg border border-purple-500/30 whitespace-nowrap shadow-[0_4px_20px_rgba(147,51,234,0.2)]">
                                                     {badge.fullName}
                                                 </div>
-                                                {/* Tooltip Caret (Little Triangle Arrow) */}
                                                 <div className="w-2 h-2 bg-[#120720] border-r border-b border-purple-500/30 absolute left-1/2 -translate-x-1/2 -bottom-1 rotate-45"></div>
                                             </div>
                                             
-                                            {/* Technical Circle Badge */}
                                             <div
                                                 className={`w-11 h-11 rounded-full flex items-center justify-center text-[15px] font-bold border tracking-tight shadow-md transform hover:scale-105 transition-transform duration-200 cursor-default ${badge.bg}`}
                                             >
@@ -67,7 +58,6 @@ export default function Skills() {
                                 </div>
                             </div>
 
-                            {/* Section: Backend & Systems */}
                             <div>
                                 <h3 className="text-white text-xl font-bold italic tracking-wide mb-4">Backend & Systems</h3>
                                 <div className="grid grid-cols-2 gap-x-6 gap-y-3">
@@ -78,7 +68,6 @@ export default function Skills() {
                                 </div>
                             </div>
 
-                            {/* Section: Interests */}
                             <div>
                                 <h3 className="text-white text-xl font-bold italic tracking-wide mb-4">Interests</h3>
                                 <div className="flex items-center flex-wrap gap-x-4 text-gray-300 text-[15px] tracking-wide">
@@ -92,10 +81,8 @@ export default function Skills() {
 
                         </div>
 
-                        {/* RIGHT COLUMN: STRENGTHS, SKILLSET, LANGUAGES */}
                         <div className="flex flex-col gap-10">
 
-                            {/* Section: Engineering Strengths */}
                             <div>
                                 <h3 className="text-white text-xl font-bold italic tracking-wide mb-4">Engineering strengths</h3>
                                 <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-gray-300 text-[15px] tracking-wide">
@@ -105,7 +92,6 @@ export default function Skills() {
                                 </div>
                             </div>
 
-                            {/* Section: Skill set */}
                             <div>
                                 <h3 className="text-white text-xl font-bold italic tracking-wide mb-4">Skill set</h3>
                                 <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-gray-300 text-[15px] tracking-wide">
@@ -115,7 +101,6 @@ export default function Skills() {
                                 </div>
                             </div>
 
-                            {/* Section: Languages */}
                             <div>
                                 <h3 className="text-white text-xl font-bold italic tracking-wide mb-4">Languages</h3>
                                 <div className="flex items-center flex-wrap gap-x-4 text-gray-300 text-[15px] tracking-wide">

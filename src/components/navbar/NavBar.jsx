@@ -1,10 +1,10 @@
-import { useState } from "react"; // 1. Imported useState
+import { useState } from "react"; 
 import { Link } from "react-router-dom";
-import { Mail, Menu, X } from "lucide-react"; // 2. Imported Menu and X icons
+import { Mail, Menu, X } from "lucide-react"; 
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 
 export default function NavBar() {
-    const [menuOpen, setMenuOpen] = useState(false); // 3. Added menu state
+    const [menuOpen, setMenuOpen] = useState(false); 
 
     const navLinks = [
         { id: "about", label: "About" },
@@ -21,14 +21,13 @@ export default function NavBar() {
                 behavior: "smooth",
             });
         }
-        setMenuOpen(false); // 4. Close mobile menu on click
+        setMenuOpen(false); 
     };
 
     return (
         <nav className="sticky top-0 z-50 border-b border-purple-500/30 bg-gradient-to-r from-[#03000a] via-[#100021] to-[#1c0033] shadow-[0_0_40px_rgba(168,85,247,0.12)] backdrop-blur-xl">
             <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8 lg:px-16">
 
-                {/* Logo */}
                 <Link
                     to="/"
                     className="text-2xl italic font-bold tracking-tight text-glow"
@@ -38,7 +37,6 @@ export default function NavBar() {
                     </span>
                 </Link>
 
-                {/* Desktop Navigation */}
                 <div className="hidden items-center gap-14 md:flex">
                     <div className="flex items-center gap-12">
                         {navLinks.map((item) => (
@@ -52,7 +50,6 @@ export default function NavBar() {
                         ))}
                     </div>
 
-                    {/* Social Icons */}
                     <div className="flex items-center gap-4">
                         <SocialIcon
                             href="https://github.com/gladwineouma"
@@ -71,7 +68,6 @@ export default function NavBar() {
                     </div>
                 </div>
 
-                {/* 5. Hamburger Button (visible on mobile only) */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
                     className="text-white hover:text-purple-400 transition-colors md:hidden focus:outline-none"
@@ -81,7 +77,6 @@ export default function NavBar() {
                 </button>
             </div>
 
-            {/* 6. Mobile Menu Overlay Dropdown */}
             {menuOpen && (
                 <div className="border-t border-purple-500/20 bg-gradient-to-b from-[#100021] to-[#1c0033] px-8 py-6 md:hidden">
                     <div className="flex flex-col gap-6">
@@ -95,7 +90,6 @@ export default function NavBar() {
                             </button>
                         ))}
 
-                        {/* Mobile Social Row */}
                         <div className="flex items-center gap-4 pt-4 border-t border-white/10">
                             <SocialIcon
                                 href="https://github.com/gladwineouma"

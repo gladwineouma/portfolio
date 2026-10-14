@@ -1,4 +1,3 @@
-// src/components/contact/Contact.jsx
 import { useEffect, useRef } from 'react';
 import { Mail, Phone, MessageCircle, MapPin, Send, Sparkles } from 'lucide-react';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
@@ -13,7 +12,6 @@ export default function Contact({ isContactOpen }) {
         { icon: MapPin, label: 'LOCATION', value: 'Nairobi, Kenya', href: null },
     ];
 
-    // Detects when the state becomes true and scrolls the page down smoothly
     useEffect(() => {
         if (isContactOpen) {
             setTimeout(() => {
@@ -46,7 +44,6 @@ export default function Contact({ isContactOpen }) {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start w-full">
-                    {/* Left Details Box */}
                     <div className="lg:col-span-5 flex flex-col gap-6">
                         <div className="w-full bg-[#160b2b]/30 backdrop-blur-xl border border-purple-500/15 rounded-[24px] p-6 text-left shadow-lg">
                             <h3 className="text-white text-lg font-bold tracking-wide mb-6">Reach me directly</h3>
@@ -82,7 +79,6 @@ export default function Contact({ isContactOpen }) {
                         </div>
                     </div>
 
-                    {/* Right Form Box */}
                     <form className="lg:col-span-7 w-full bg-[#160b2b]/30 backdrop-blur-xl border border-purple-500/15 rounded-[28px] p-8 flex flex-col gap-5 shadow-lg">
                         <div className="flex flex-col gap-2">
                             <label className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">YOUR NAME</label>

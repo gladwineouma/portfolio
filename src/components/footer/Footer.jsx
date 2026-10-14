@@ -1,4 +1,3 @@
-// src/components/footer/Footer.jsx
 import { Mail, ChevronUp } from "lucide-react";
 
 export default function Footer({ isContactOpen, setIsContactOpen }) {
@@ -6,7 +5,6 @@ export default function Footer({ isContactOpen, setIsContactOpen }) {
         <footer className="w-full flex flex-col items-center justify-center pb-8 px-6 md:px-16">
             <div className="max-w-6xl w-full flex flex-col items-center gap-12">
 
-                {/* Glassmorphic Call to Action Banner Container */}
                 <div className="w-full bg-[#1e103c] backdrop-blur-xl border border-purple-500/15 rounded-[32px] py-16 px-8 flex flex-col items-center justify-center text-center shadow-[0_20px_50px_rgba(0,0,0,0.4)] relative overflow-hidden">
 
                     <h2 className="text-white text-3xl md:text-4xl font-bold italic tracking-wide mb-3">
@@ -26,7 +24,6 @@ export default function Footer({ isContactOpen, setIsContactOpen }) {
                     </button>
                 </div>
 
-                {/* Footer Copyright Label - Now Updates Automatically */}
                 <p className="text-gray-600 text-xs tracking-wide font-normal">
                     © {new Date().getFullYear()} Gladwine Ouma
                 </p>

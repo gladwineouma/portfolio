@@ -1,4 +1,3 @@
-// src/components/highlights/Highlights.jsx
 import { Cpu, Database, PenTool, Sparkles, Layers, Box } from 'lucide-react'
 
 export default function Highlights() {
@@ -39,14 +38,12 @@ export default function Highlights() {
         <section id="highlights" className="min-h-screen flex flex-col items-center justify-center py-20 px-6 md:px-16 bg-[#1e103c]">
             <div className="max-w-6xl w-full text-left">
 
-                {/* Main Heading Pill Element */}
                 <div className="mb-14">
                     <div className="inline-block px-9 py-3 bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#4c1d95] rounded-full font-bold text-2xl italic text-black shadow-lg">
                         Engineering highlights
                     </div>
                 </div>
 
-                {/* 3-Column Light Glassmorphism Layout Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full">
                     {highlights.map((item, index) => {
                         const IconComponent = item.icon;
@@ -55,12 +52,11 @@ export default function Highlights() {
                                 key={index}
                                 className="bg-white/[0.04] backdrop-blur-2xl border border-white/[0.08] rounded-[24px] p-7 flex flex-col gap-4 shadow-[0_15px_35px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.05)] hover:bg-white/[0.07] hover:border-purple-400/40 transition-all duration-300 group"
                             >
-                                {/* Vector Outline Icons */}
+                               
                                 <div className="text-purple-400 group-hover:text-purple-300 transition-colors">
                                     <IconComponent className="h-5 w-5 stroke-[1.5]" />
                                 </div>
 
-                                {/* Typography Blocks */}
                                 <div className="flex flex-col gap-1">
                                     <h3 className="text-white text-[16px] font-bold tracking-wide">
                                         {item.title}
