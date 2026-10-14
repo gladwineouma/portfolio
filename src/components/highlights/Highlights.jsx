@@ -21,7 +21,7 @@ export default function Highlights() {
         {
             icon: Sparkles,
             title: 'AI exposure',
-            description: 'Generative AI, chatbots & API automation.'
+            description: 'Generative AI tools & chatbot interfaces. '
         },
         {
             icon: Layers,

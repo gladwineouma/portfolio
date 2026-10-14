@@ -1,7 +1,16 @@
 import PillHeading from '../ui/PillHeading'
 
 export default function Skills() {
-    // Exact lists from your mockup image
+    // Array updated with 'fullName' properties for the tooltips
+    const techBadges = [
+        { label: 'Dj', fullName: 'Django', bg: 'bg-[#15803d]/20 text-[#22c55e] border-[#22c55e]/30' },
+        { label: 'Re', fullName: 'React', bg: 'bg-[#1d4ed8]/20 text-[#3b82f6] border-[#3b82f6]/30' },
+        { label: 'Nx', fullName: 'Next.js', bg: 'bg-[#262626]/40 text-[#a3a3a3] border-[#a3a3a3]/30' },
+        { label: 'RN', fullName: 'React Native', bg: 'bg-[#4338ca]/20 text-[#6366f1] border-[#6366f1]/30' },
+        { label: 'SQ', fullName: 'SQL', bg: 'bg-[#7c2d12]/30 text-[#ea580c] border-[#ea580c]/30' },
+        { label: 'Gh', fullName: 'GitHub', bg: 'bg-[#7f1d1d]/30 text-[#ef4444] border-[#ef4444]/30' }
+    ];
+
     const engineeringStrengths = [
         "API integration", "End-to-end delivery",
         "System architecture", "Quality assurance"
@@ -10,15 +19,6 @@ export default function Skills() {
     const skillSet = [
         "Backend Engineering", "REST API Design", "Data Modeling",
         "Frontend & Mobile", "Web Deployment", "Testing & QA"
-    ];
-
-    const techBadges = [
-        { label: 'Dj', bg: 'bg-[#15803d]/20 text-[#22c55e] border-[#22c55e]/30' }, // Django
-        { label: 'Re', bg: 'bg-[#1d4ed8]/20 text-[#3b82f6] border-[#3b82f6]/30' }, // React
-        { label: 'Nx', bg: 'bg-[#262626]/40 text-[#a3a3a3] border-[#a3a3a3]/30' }, // Next.js
-        { label: 'RN', bg: 'bg-[#4338ca]/20 text-[#6366f1] border-[#6366f1]/30' }, // React Native
-        { label: 'SQ', bg: 'bg-[#7c2d12]/30 text-[#ea580c] border-[#ea580c]/30' }, // SQL
-        { label: 'Gh', bg: 'bg-[#7f1d1d]/30 text-[#ef4444] border-[#ef4444]/30' }  // GitHub
     ];
 
     return (
@@ -44,11 +44,24 @@ export default function Skills() {
                                 <h3 className="text-white text-xl font-bold italic tracking-wide mb-5">Technical skills</h3>
                                 <div className="flex flex-wrap gap-4">
                                     {techBadges.map((badge, idx) => (
-                                        <div
-                                            key={idx}
-                                            className={`w-11 h-11 rounded-full flex items-center justify-center text-[15px] font-bold border tracking-tight shadow-md transform hover:scale-105 transition-transform duration-200 cursor-default ${badge.bg}`}
-                                        >
-                                            {badge.label}
+                                        <div key={idx} className="group relative">
+                                            
+                                            {/* Tailwind Custom Tooltip Container */}
+                                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 scale-95 opacity-0 pointer-events-none group-hover:scale-100 group-hover:opacity-100 transition-all duration-200 z-10">
+                                                {/* Tooltip Bubble */}
+                                                <div className="bg-[#120720] text-gray-200 text-xs font-semibold px-3 py-1.5 rounded-lg border border-purple-500/30 whitespace-nowrap shadow-[0_4px_20px_rgba(147,51,234,0.2)]">
+                                                    {badge.fullName}
+                                                </div>
+                                                {/* Tooltip Caret (Little Triangle Arrow) */}
+                                                <div className="w-2 h-2 bg-[#120720] border-r border-b border-purple-500/30 absolute left-1/2 -translate-x-1/2 -bottom-1 rotate-45"></div>
+                                            </div>
+                                            
+                                            {/* Technical Circle Badge */}
+                                            <div
+                                                className={`w-11 h-11 rounded-full flex items-center justify-center text-[15px] font-bold border tracking-tight shadow-md transform hover:scale-105 transition-transform duration-200 cursor-default ${badge.bg}`}
+                                            >
+                                                {badge.label}
+                                            </div>
                                         </div>
                                     ))}
                                 </div>

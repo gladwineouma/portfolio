@@ -1,8 +1,11 @@
+import { useState } from "react"; // 1. Imported useState
 import { Link } from "react-router-dom";
-import { Mail } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react"; // 2. Imported Menu and X icons
 import { FiGithub, FiLinkedin } from "react-icons/fi";
 
 export default function NavBar() {
+    const [menuOpen, setMenuOpen] = useState(false); // 3. Added menu state
+
     const navLinks = [
         { id: "about", label: "About" },
         { id: "projects", label: "Projects" },
@@ -18,6 +21,7 @@ export default function NavBar() {
                 behavior: "smooth",
             });
         }
+        setMenuOpen(false); // 4. Close mobile menu on click
     };
 
     return (
@@ -34,7 +38,7 @@ export default function NavBar() {
                     </span>
                 </Link>
 
-                {/* Navigation */}
+                {/* Desktop Navigation */}
                 <div className="hidden items-center gap-14 md:flex">
                     <div className="flex items-center gap-12">
                         {navLinks.map((item) => (
@@ -66,7 +70,51 @@ export default function NavBar() {
                         />
                     </div>
                 </div>
+
+                {/* 5. Hamburger Button (visible on mobile only) */}
+                <button
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="text-white hover:text-purple-400 transition-colors md:hidden focus:outline-none"
+                    aria-label="Toggle Menu"
+                >
+                    {menuOpen ? <X size={30} /> : <Menu size={30} />}
+                </button>
             </div>
+
+            {/* 6. Mobile Menu Overlay Dropdown */}
+            {menuOpen && (
+                <div className="border-t border-purple-500/20 bg-gradient-to-b from-[#100021] to-[#1c0033] px-8 py-6 md:hidden">
+                    <div className="flex flex-col gap-6">
+                        {navLinks.map((item) => (
+                            <button
+                                key={item.id}
+                                onClick={() => scrollTo(item.id)}
+                                className="text-left text-[18px] font-normal text-white/75 transition-all duration-300 hover:text-purple-400 hover:pl-2"
+                            >
+                                {item.label}
+                            </button>
+                        ))}
+
+                        {/* Mobile Social Row */}
+                        <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+                            <SocialIcon
+                                href="https://github.com/gladwineouma"
+                                icon={FiGithub}
+                            />
+
+                            <SocialIcon
+                                href="https://www.linkedin.com/in/gladwine-ouma"
+                                icon={FiLinkedin}
+                            />
+
+                            <SocialIcon
+                                href="mailto:oumagladwineesther@gmail.com"
+                                icon={Mail}
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
         </nav>
     );
 }

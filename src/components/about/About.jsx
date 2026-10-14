@@ -83,7 +83,7 @@ export default function About() {
                             {/* Image container frame matching the target look */}
                             <div className="relative rounded-[50px] overflow-hidden border border-purple-500/20 shadow-[0_0_60px_rgba(147,51,234,0.2)]">
                                 <img
-                                    src="/gladwin.jpg" // Serves directly from your Vite static public folder base
+                                    src="/portfolio.png" // Serves directly from your Vite static public folder base
                                     alt="Gladwine Ouma"
                                     className="w-72 h-72 md:w-[350px] md:h-[350px] object-cover object-center"
                                 />

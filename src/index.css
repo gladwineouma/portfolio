@@ -2,7 +2,6 @@
 @import "tailwindcss";
 
 
-/* ===== YOUR DESIGN SYSTEM (PASTE FULL BLOCK HERE) ===== */
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -22,7 +21,6 @@
   --color-glow: var(--glow);
 }
 
-/* ===== ROOT VARIABLES ===== */
 :root {
   --radius: 1.25rem;
 
@@ -34,7 +32,6 @@
   --glow: oklch(0.7 0.22 285);
 }
 
-/* ===== BASE STYLES ===== */
 @layer base {
 
   html,
@@ -51,7 +48,6 @@
   }
 }
 
-/* ===== YOUR CUSTOM EFFECTS ===== */
 @layer utilities {
   .text-glow {
     text-shadow: 0 0 18px oklch(0.72 0.22 295 / 0.55);
