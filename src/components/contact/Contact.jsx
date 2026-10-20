@@ -26,7 +26,7 @@ export default function Contact({ isContactOpen }) {
             });
 
             if (response.ok) {
-                setStatus('Message sent successfully!');
+                setStatus('Message sent successfully! Thanks for reaching out. I look forward to working with you.');
                 e.target.reset(); 
             } else {
                 setStatus('Oops! Something went wrong.');
