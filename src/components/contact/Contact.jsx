@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'; // Added useState
+import { useEffect, useRef, useState } from 'react'; 
 import { Mail, Phone, MessageCircle, MapPin, Send, Sparkles } from 'lucide-react';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 
