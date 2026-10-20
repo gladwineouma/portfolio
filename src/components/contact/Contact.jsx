@@ -1,9 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react'; // Added useState
 import { Mail, Phone, MessageCircle, MapPin, Send, Sparkles } from 'lucide-react';
 import { FiGithub, FiLinkedin } from 'react-icons/fi';
 
 export default function Contact({ isContactOpen }) {
     const sectionRef = useRef(null);
+    const [status, setStatus] = useState(''); 
 
     const directContacts = [
         { icon: Mail, label: 'EMAIL', value: 'oumagladwineesther@gmail.com', href: 'mailto:oumagladwineesther@gmail.com' },
@@ -11,6 +12,29 @@ export default function Contact({ isContactOpen }) {
         { icon: MessageCircle, label: 'WHATSAPP', value: '+254 742 838 976', href: 'https://wa.me' },
         { icon: MapPin, label: 'LOCATION', value: 'Nairobi, Kenya', href: null },
     ];
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('Sending...');
+        const formData = new FormData(e.target);
+
+        try {
+            const response = await fetch("https://formspree.io/f/xrpevjao", {
+                method: "POST",
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                setStatus('Message sent successfully!');
+                e.target.reset(); 
+            } else {
+                setStatus('Oops! Something went wrong.');
+            }
+        } catch (error) {
+            setStatus('Oops! Something went wrong.');
+        }
+    };
 
     useEffect(() => {
         if (isContactOpen) {
@@ -79,24 +103,25 @@ export default function Contact({ isContactOpen }) {
                         </div>
                     </div>
 
-                    <form className="lg:col-span-7 w-full bg-[#160b2b]/30 backdrop-blur-xl border border-purple-500/15 rounded-[28px] p-8 flex flex-col gap-5 shadow-lg">
+                    <form onSubmit={handleSubmit} className="lg:col-span-7 w-full bg-[#160b2b]/30 backdrop-blur-xl border border-purple-500/15 rounded-[28px] p-8 flex flex-col gap-5 shadow-lg">
                         <div className="flex flex-col gap-2">
                             <label className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">YOUR NAME</label>
-                            <input type="text" placeholder="Jane Doe" required className="w-full bg-[#1a0e36]/60 border border-purple-500/20 rounded-xl px-4 py-3.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-400 transition-all duration-300" />
+                            <input name="name" type="text" placeholder="Gladwine Ouma" required className="w-full bg-[#1a0e36]/60 border border-purple-500/20 rounded-xl px-4 py-3.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-400 transition-all duration-300" />
                         </div>
                         <div className="flex flex-col gap-2">
                             <label className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">EMAIL</label>
-                            <input type="email" placeholder="you@example.com" required className="w-full bg-[#1a0e36]/60 border border-purple-500/20 rounded-xl px-4 py-3.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-400 transition-all duration-300" />
+                            <input name="email" type="email" placeholder="gladwine@gmail.com" required className="w-full bg-[#1a0e36]/60 border border-purple-500/20 rounded-xl px-4 py-3.5 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-purple-400 transition-all duration-300" />
                         </div>
                         <div className="flex flex-col gap-2">
                             <label className="text-[10px] font-bold text-gray-400 tracking-widest uppercase">PROJECT DETAILS</label>
-                            <textarea rows={5} placeholder="Tell me about your project, timeline, and goals..." required className="w-full bg-[#1a0e36]/60 border border-purple-500/20 rounded-xl px-4 py-3.5 text-white text-sm placeholder-gray-600 resize-none focus:outline-none focus:border-purple-400 transition-all duration-300"></textarea>
+                            <textarea name="message" rows={5} placeholder="Tell me about your project, timeline, and goals..." required className="w-full bg-[#1a0e36]/60 border border-purple-500/20 rounded-xl px-4 py-3.5 text-white text-sm placeholder-gray-600 resize-none focus:outline-none focus:border-purple-400 transition-all duration-300"></textarea>
                         </div>
-                        <div className="flex justify-start mt-2">
+                        <div className="flex justify-between items-center mt-2">
                             <button type="submit" className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#6b21a8] text-black font-semibold text-sm rounded-full shadow-lg transition-all duration-300">
                                 <span>Send message</span>
                                 <Send className="h-3.5 w-3.5 stroke-[2.5]" />
                             </button>
+                            {status && <span className="text-xs text-purple-400 font-medium transition-all duration-300">{status}</span>}
                         </div>
                     </form>
                 </div>
